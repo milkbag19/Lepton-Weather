@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
-app.configure( function() {
+
 //parses request body and populates request.body
     app.use( express.bodyParser() );
 
@@ -26,7 +26,7 @@ app.configure( function() {
 
 //Show all errors in development
     app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+
 
 
 router.get('/',(req, res) => {

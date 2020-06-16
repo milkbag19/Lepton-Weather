@@ -16,9 +16,7 @@ const server = app.listen(process.env.PORT || 8888, () => {
 
     app.post('/', (req, res) => {
         const username = req.body.username;
-        res.render('/app/frontend/index.html', {
-            userName: userName
-        });
+        res.render('/app/frontend/index.html');
         res.write(username);
         res.end();
     });

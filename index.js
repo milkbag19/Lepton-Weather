@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 router.get('/',(req, res) => {
-    res.sendfile("index.html");
+    res.sendfile("/app/frontend/index.html");
 });
 
 router.post('/',(req, res) => {

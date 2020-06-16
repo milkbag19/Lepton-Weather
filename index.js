@@ -4,7 +4,7 @@ const express = require('express');
 const app = new express();
 
 
-const app = http.createServer( function(request, response) {
+const web = http.createServer( function(request, response) {
     response.writeHead(200, {"Content-Type": "text/html"});
     response.write('yeet');
     response.end();
@@ -14,4 +14,4 @@ app.get('/', function(request, response){
 });
 
 
-app.listen(process.env.PORT || 8888);
+web.listen(process.env.PORT || 8888);

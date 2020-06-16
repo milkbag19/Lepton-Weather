@@ -17,10 +17,10 @@ const server = app.listen(process.env.PORT || 8888, () => {
     app.post('/', (req, res) => {
         const username = req.body.username;
         res.write(username);
-        app.get('/', function(request, response){
+        res.write(app.get('/', function(request, response){
             console.log(__dirname);
             response.sendFile('/app/frontend/index.html');
-        });
+        }));
         res.end();
     });
 });

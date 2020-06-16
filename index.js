@@ -3,6 +3,8 @@ const http = require('http');
 const express = require('express');
 var path = require('path');
 const app = new express();
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 
 app.get('/', function(request, response){
     console.log(__dirname);

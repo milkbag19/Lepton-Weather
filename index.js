@@ -6,4 +6,4 @@ const app = http.createServer( function(request, response) {
     response.end();
 });
 
-app.listen();
+app.listen(process.env.PORT || 8888);

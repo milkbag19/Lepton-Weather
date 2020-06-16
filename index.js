@@ -13,12 +13,14 @@ const { sanitizeBody } = require('express-validator/filter');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
 
 router.get('/',(req, res) => {
     res.sendfile("/app/frontend/index.html");
 });
 
-router.post('/login',(req, res) => {
+router.post('/index',(req, res) => {
     var user_name=req.body.user;
     var password=req.body.password;
     console.log("User name = "+user_name+", password is "+password);

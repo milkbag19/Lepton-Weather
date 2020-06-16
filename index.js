@@ -22,9 +22,6 @@ app.listen(process.env.PORT || 8888,() => {
     });
 
     app.post('/',(req, res) => {
-        var user_name=req.body.user;
-        var password=req.body.password;
-        console.log(user_name);
         res.end("yes");
     });
 })

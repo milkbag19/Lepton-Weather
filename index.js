@@ -18,7 +18,7 @@ router.use(bodyParser.json());
 
 app.listen(process.env.PORT || 8888,() => {
     app.get('/',(req, res) => {
-        res.sendfile("/app/index.ejs");
+        res.render("/app/index.ejs");
     });
 
     app.post('/',(req, res) => {

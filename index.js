@@ -14,7 +14,7 @@ const { sanitizeBody } = require('express-validator/filter');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+
 
 router.get('/',(req, res) => {
     res.sendfile("/app/frontend/index.html");

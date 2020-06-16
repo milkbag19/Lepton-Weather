@@ -1,0 +1,9 @@
+{
+  "name": "nodejssite",
+  "version": "1.0",
+  "description": "yeet",
+  "author": "Josh Wells",
+  "dependencies": {
+    "-": "0.0.1",
+  }
+}

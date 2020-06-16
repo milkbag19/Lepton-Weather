@@ -9,9 +9,8 @@ const router = express.Router();
 
 
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
-app.use(express.bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 

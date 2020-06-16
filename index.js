@@ -14,7 +14,7 @@ const server = app.listen(process.env.PORT || 8888, () => {
 
     app.post('/submit-form', (req, res) => {
         const username = req.body.username
-
+        console.log(username);
         res.end()
     });
 });

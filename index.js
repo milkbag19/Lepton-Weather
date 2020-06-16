@@ -24,7 +24,6 @@ app.listen(process.env.PORT || 8888,() => {
     app.post('/',(req, res) => {
         console.log(req.body.user);
         console.log(req.body.pass);
-        res.end("yes");
     });
 })
 

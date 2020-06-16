@@ -12,7 +12,7 @@ app.get('/', function(request, response){
 const server = app.listen(process.env.PORT || 8888, () => {
     app.use(express.urlencoded());
 
-    app.post('/submit-form', (req, res) => {
+    app.post('/', (req, res) => {
         const username = req.body.username
         console.log(username);
         res.end()

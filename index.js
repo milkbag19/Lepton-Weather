@@ -5,27 +5,20 @@ var path = require('path');
 const app = new express();
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
-var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + '/public'));
-
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
-app.use(bodyParser.json());
-
-app.get('/', function(req, res){
-    res.render('form');// if jade
-    // You should use one of line depending on type of frontend you are with
-    res.sendFile("/app/frontend/index.html"); //if html file is within public directory
+app.get('/', function(request, response){
+    console.log(__dirname);
+    response.sendFile('/app/frontend/index.html');
 });
 
-app.post('/',function(req,res){
-    var username = req.body.username;
-    var htmlData = 'Hello:' + username;
-    res.send(htmlData);
-    console.log(htmlData);
+const server = app.listen(process.env.PORT || 8888, () => {
+    app.use(express.urlencoded({extended: false}));
+
+    app.post('/', (req, res) => {
+        const username = req.body.username;
+        console.log(username);
+        res.end();
+    });
 });
 
-app.listen(process.env.PORT || 8888);
+

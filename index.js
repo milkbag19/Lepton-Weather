@@ -23,7 +23,7 @@ router.get('/',(req, res) => {
 router.post('/index',(req, res) => {
     var user_name=req.body.user;
     var password=req.body.password;
-    console.log("User name = "+user_name+", password is "+password);
+    console.log(user_name);
     res.end("yes");
 });
 

@@ -25,7 +25,6 @@ router.use(bodyParser.json());
     app.use( express.static( path.join( application_root, 'site') ) );
 
 //Show all errors in development
-    app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 
 

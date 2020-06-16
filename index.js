@@ -25,7 +25,7 @@ app.listen(process.env.PORT || 8888,() => {
         var user_name=req.body.user;
         var password=req.body.password;
         console.log(user_name);
-        res.end();
+        res.end("yes");
     });
 })
 

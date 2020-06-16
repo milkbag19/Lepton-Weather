@@ -8,7 +8,7 @@ const app = new express();
 const server = app.listen(process.env.PORT || 8888, () => {
     app.get('/', function(request, response){
         console.log(__dirname);
-        //response.sendFile('app/frontend/index.html');
+        response.sendFile('/app/frontend/index.html');
     });
 });
 

@@ -17,8 +17,8 @@ router.use(bodyParser.json());
 
 
 app.listen(process.env.PORT || 8888,() => {
-    router.get('/',(req, res) => {
-        res.sendfile("index.html");
+    app.get('/',(req, res) => {
+        res.sendfile("/app/index.html");
     });
 
     router.post('/',(req, res) => {

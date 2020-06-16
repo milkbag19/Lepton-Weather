@@ -3,27 +3,29 @@ const http = require('http');
 const express = require('express');
 var path = require('path');
 const ejs = require('ejs');
+const bodyParser = require("body-parser");
 const app = new express();
+const router = express.Router();
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
-app.set('view engine', 'ejs');
-let people = ['geddy', 'neil', 'alex'],
-    html = ejs.render('<%= people.join(", "); %>', {people: people});
-app.get('/', function(request, response){
-    response.sendFile('/app/frontend/index.html');
-});
-app.use(express.urlencoded({extended: false}));
 
-app.post('/', (req, res) => {
-    const username = req.body.username;
-    res.render(html);
-    res.write(username);
-    res.end();
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+router.get('/',(req, res) => {
+    res.sendfile("index.html");
 });
 
-// With jQuery:
-const server = app.listen(process.env.PORT || 8888, () => {
-
+router.post('/login',(req, res) => {
+    var user_name=req.body.user;
+    var password=req.body.password;
+    console.log("User name = "+user_name+", password is "+password);
+    res.end("yes");
 });
 
+app.listen(process.env.PORT || 8888,() => {
+    console.log("Started on PORT 3000");
+})
 

@@ -6,8 +6,6 @@ const ejs = require('ejs');
 const bodyParser = require("body-parser");
 const app = new express();
 const router = express.Router();
-const { body,validationResult } = require('express-validator/check');
-const { sanitizeBody } = require('express-validator/filter');
 
 
 

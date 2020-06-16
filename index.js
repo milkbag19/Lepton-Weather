@@ -14,14 +14,13 @@ app.use(express.urlencoded({extended: false}));
 
 app.post('/', (req, res) => {
     const username = req.body.username;
-    res.render('/app/frontend/index.html');
+    res.render('/app/frontend/index');
     res.write(username);
     res.end();
 });
 let people = ['geddy', 'neil', 'alex'],
     html = ejs.render('<%= people.join(", "); %>', {people: people});
 // With jQuery:
-$('#output').html(html);
 const server = app.listen(process.env.PORT || 8888, () => {
 
 });

@@ -6,6 +6,7 @@ const ejs = require('ejs');
 const app = new express();
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
+app.set('view engine', 'ejs');
 let people = ['geddy', 'neil', 'alex'],
     html = ejs.render('<%= people.join(", "); %>', {people: people});
 app.get('/', function(request, response){

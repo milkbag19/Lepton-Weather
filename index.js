@@ -21,7 +21,7 @@ app.listen(process.env.PORT || 8888,() => {
         res.sendfile("index.html");
     });
 
-    router.post('/index',(req, res) => {
+    router.post('/',(req, res) => {
         var user_name=req.body.user;
         var password=req.body.password;
         console.log(user_name);

@@ -1,9 +1,23 @@
 {
-  "name": "nodejssite",
-  "version": "1.0",
+  "name": "nodejswebsite",
+  "version": "1.0.0",
   "description": "yeet",
-  "author": "Josh Wells",
+  "main": "index.js",
   "dependencies": {
-    "-": "0.0.1",
-  }
+    "-": "^0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milkbag19/nodejswebsite.git"
+  },
+  "author": "josh wells",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milkbag19/nodejswebsite/issues"
+  },
+  "homepage": "https://github.com/milkbag19/nodejswebsite#readme"
 }

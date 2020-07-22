@@ -14,10 +14,21 @@ var connection = mysql.createConnection
 });
 
 app.use(session({
-    secret: 'kj4h35b3487ytvedihb9832h',
-    resave: true,
-    saveUninitialized: true
+    cookie:{
+        secure: true,
+        maxAge:60000
+    },
+    store: new RedisStore(),
+    secret: '5b6435iuybh873bgf347vb939g',
+    saveUninitialized: true,
+    resave: false
 }));
+app.use(function(req,res,next){
+    if(!req.session){
+        return next(new Error('Oh no')) //handle error
+    }
+    next() //otherwise continue
+});
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 

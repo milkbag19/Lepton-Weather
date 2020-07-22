@@ -1,26 +1,8 @@
-const url = require('url');
-const http = require('http');
-const express = require('express');
-var path = require('path');
-const ejs = require('ejs');
-const bodyParser = require("body-parser");
-const app = new express();
-const router = express.Router();
+var http = require('http');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.set('view engine', 'ejs');
-
-app.listen(process.env.PORT || 8888,() => {
-    app.get('/',(req, res) => {
-        res.render("/app/index");
-        res.end();
-    });
-
-    app.post('/',(req, res) => {
-        console.log(req.body.user);
-        console.log(req.body.pass);
-        res.end();
-    });
-})
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(req.url);
+    res.end();
+}).listen(8080);
 

@@ -18,7 +18,6 @@ app.use(session({
         secure: true,
         maxAge:60000
     },
-    store: new RedisStore(),
     secret: '5b6435iuybh873bgf347vb939g',
     saveUninitialized: true,
     resave: false

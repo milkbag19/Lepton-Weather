@@ -53,7 +53,7 @@ app.post('/auth', function(request, response) {
     response.end();
 });
 app.get('/home', function(request, response) {
-    if (request.session.loggedin) {
+    if (request.session.user_id) {
         response.send('Welcome back, ' + request.session.username + '!');
     } else {
         response.send('Please login to view this page!');

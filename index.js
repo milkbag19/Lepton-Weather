@@ -7,10 +7,10 @@ var path = require('path');//gg
 
 var connection = mysql.createConnection
 ({
-    host     : 'ftp.digiterahost.com',
-    user     : 'leadfeas_bruh',
-    password : 'JHTygzziLso3',
-    database : 'leadfeas_node'
+    host     : 'us-cdbr-east-06.cleardb.net',
+    user     : 'bc7ebb91ba7af7',
+    password : 'e005b7aa',
+    database : 'heroku_4a764fc9b5fb4a4'
 });
 
 app.use(session({

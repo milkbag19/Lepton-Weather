@@ -42,7 +42,7 @@ app.post('/auth', function(req, res) {
         var query = connection.query("SELECT * FROM `users` WHERE username = ? AND password = ?", [username, password], function(err, results, fields){
             if(results.length > 0){
                 req.session.user_id = results.user_id;
-                res.sendFile(path.join(__dirname + '/login.html'));
+                response.redirect('/home');
             } else {
                 res.send('Incorrect Username and/or Password!');
             }

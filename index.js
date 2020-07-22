@@ -40,6 +40,9 @@ app.post('/auth', function(req, res) {
     var password = req.body.password;
     if(username && password){
         var query = connection.query("SELECT * FROM `users` WHERE username = ? AND password = ?", [username, password], function(err, results, fields){
+            if (err) {
+                return console.error('error: ' + err.message);
+            }
             if(results.length > 0){
                 req.session.user_id = results.user_id;
                 response.redirect('/home');

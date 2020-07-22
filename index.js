@@ -35,22 +35,22 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/login.html'));
 });
 
-app.post('/auth', function(request, response) {
+app.post('/auth', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     if(username && password){
         var query = mysql.query("SELECT * FROM `users` WHERE username = ? AND password = ?", [username, password], function(err, results, fields){
             if(results.length > 0){
-                request.session.user_id = results.user_id;
+                req.session.user_id = results.user_id;
             } else {
-                response.send('Incorrect Username and/or Password!');
+                res.send('Incorrect Username and/or Password!');
             }
-            response.end();
+            res.end();
         });
     } else {
-        response.send('Please fill in both fields');
+        res.send('Please fill in both fields');
     }
-    response.end();
+    res.end();
 });
 app.get('/home', function(request, response) {
     if (request.session.user_id) {

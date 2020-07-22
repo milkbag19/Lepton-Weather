@@ -7,14 +7,9 @@ const bodyParser = require("body-parser");
 const app = new express();
 const router = express.Router();
 
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
-
-
-
 
 app.listen(process.env.PORT || 8888,() => {
     app.get('/',(req, res) => {

@@ -52,11 +52,11 @@ app.post('/auth', function(req, res) {
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
     if (request.session.id) {
-        res.render('pages/index', {});
-        res.send(request.session.id);
+        response.render('pages/index', {});
+        response.send(request.session.id);
     } else {
         response.send('Please login to view this page!');
-        res.send(request.session.id);
+        response.send(request.session.id);
     }
     response.end();
 });

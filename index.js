@@ -4,7 +4,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');//gg
-
+const router = express.Router();
 
 // Creating a connection to our mysql database
 var connection = mysql.createConnection
@@ -19,13 +19,13 @@ var connection = mysql.createConnection
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-
+app.use(express.static(__dirname + '/views'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/login.html'));
 });
 
 // will listen to post requests in the /auth directory
-app.post('/auth', function(req, res) {
+router.post('/auth', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     if(username && password){
@@ -49,7 +49,7 @@ app.post('/auth', function(req, res) {
     }
 });
 // will listen to post requests in the /home directory
-app.get('/home', function(request, response) {
+router.get('/home', function(request, response) {
     if (request.session.user_id) {
         res.sendFile(path.join(__dirname + '/index.html'));
     } else {
@@ -57,5 +57,5 @@ app.get('/home', function(request, response) {
     }
     response.end();
 });
-
+app.use('/', router);
 app.listen(process.env.PORT || 3000);

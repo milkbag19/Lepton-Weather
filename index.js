@@ -39,7 +39,7 @@ app.post('/auth', function(req, res) {
                 return console.error('error: ' + err.message);
             }
             if(results.length > 0){
-                req.session.user_id = results[0].id;
+                //req.session.user_id = results[0].id;
                // console.log(results[0].id);
                 res.writeHead(302, {
                     'Location': '/home'
@@ -56,7 +56,7 @@ app.post('/auth', function(req, res) {
 });
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
-    if (request.session.user_id) {
+    if (request.session.user_id != null) {
         response.render('pages/index', {});
         console.log(request.session.user_id);
     } else {

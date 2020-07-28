@@ -78,9 +78,12 @@ app.post('/results', function (req,res) {
         }
         var current = result[0].current;
         var location = result[0].location;
-        res.send('<h1>Temperature</h1>');
-        res.send(current.temperature);
-        res.end();
+        app.locals.temp = current.temperature;
+        res.writeHead(302, {
+            'Location': '/home'
+            //add other headers here...
+        });
+
     });
 });
 

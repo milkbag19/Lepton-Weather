@@ -5,6 +5,8 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');//gg
 
+
+// Creating a connection to our mysql database
 var connection = mysql.createConnection
 ({
     host     : 'us-cdbr-east-02.cleardb.com',
@@ -13,6 +15,7 @@ var connection = mysql.createConnection
     database : 'heroku_4a764fc9b5fb4a4'
 });
 
+//
 app.use(session({
     cookie:{
         secure: true,
@@ -35,6 +38,7 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/login.html'));
 });
 
+// will listen to post requests in the /auth directory
 app.post('/auth', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
@@ -45,7 +49,9 @@ app.post('/auth', function(req, res) {
             }
             if(results.length > 0){
                 req.session.user_id = results.user_id;
-                response.redirect('/home');
+                response.writeHead(302, {
+                    'Location': '/home'.
+                });
             } else {
                 res.send('Incorrect Username and/or Password!');
             }
@@ -56,6 +62,7 @@ app.post('/auth', function(req, res) {
     }
     res.end();
 });
+// will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
         response.send('Welcome back, ' + request.session.username + '!');

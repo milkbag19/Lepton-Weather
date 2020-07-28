@@ -68,4 +68,18 @@ app.get('/home', function(request, response) {
     response.end();
 });
 
+app.post('results' function () {
+    var local = req.body.location;
+    weather.find({search: local, degreeType: 'C'}, function (err, result) {
+        if (err) {
+        } else if (result.length == 0) {
+            return;
+        }
+        var current = result[0].current;
+        var location = result[0].location;
+        res.send('<h1>Temperature</h1>');
+        res.send(current.temperature);
+    });
+});
+
 app.listen(process.env.PORT || 3000);

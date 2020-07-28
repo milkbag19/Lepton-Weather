@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 //
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
+app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
     res.render('login');

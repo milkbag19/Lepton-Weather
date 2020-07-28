@@ -21,6 +21,9 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
+    if(req.session.id){
+        res.render('pages/index', {});
+    } 
     res.render('pages/login', {});
 });
 

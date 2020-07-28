@@ -80,6 +80,7 @@ app.post('/results', function (req,res) {
         var location = result[0].location;
         res.send('<h1>Temperature</h1>');
         res.send(current.temperature);
+        res.end();
     });
 });
 

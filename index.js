@@ -68,7 +68,7 @@ app.get('/home', function(request, response) {
     response.end();
 });
 
-app.post('results' function () {
+app.post('results', function () {
     var local = req.body.location;
     weather.find({search: local, degreeType: 'C'}, function (err, result) {
         if (err) {

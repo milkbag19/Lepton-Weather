@@ -39,7 +39,7 @@ app.post('/auth', function(req, res) {
                 return console.error('error: ' + err.message);
             }
             if(results.length > 0){
-                req.session.user_id = 'fuck';
+                req.session.user_id = results[0].id;
                // console.log(results[0].id);
                 res.writeHead(302, {
                     'Location': '/home'

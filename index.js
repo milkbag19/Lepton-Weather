@@ -82,7 +82,7 @@ app.post('/results', function (req,res) {
             'Location': '/home'
             //add other headers here...
         });
-
+        res.end();
     });
 });
 

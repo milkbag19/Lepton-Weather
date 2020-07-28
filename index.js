@@ -67,7 +67,7 @@ app.get('/home', function(request, response) {
     }
     response.end();
 });
-
+app.locals.temp = '';
 app.post('/results', function (req,res) {
     var local = req.body.location;
     weather.find({search: 'ottawa', degreeType: 'C'}, function (err, result) {

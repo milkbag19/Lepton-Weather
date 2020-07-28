@@ -15,6 +15,7 @@ var connection = mysql.createConnection
     database : 'heroku_4a764fc9b5fb4a4'
 });
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());

@@ -52,6 +52,7 @@ app.post('/auth', function(req, res) {
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
         res.render('pages/index', {});
+        res.send(request.session.user_id);
     } else {
         response.send('Please login to view this page!');
     }

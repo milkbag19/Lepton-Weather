@@ -23,8 +23,9 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
     if(req.session.id){
         res.render('pages/index', {});
-    } 
-    res.render('pages/login', {});
+    } else {
+        res.render('pages/login', {});
+    }
 });
 
 // will listen to post requests in the /auth directory

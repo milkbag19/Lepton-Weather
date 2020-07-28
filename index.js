@@ -17,12 +17,6 @@ var connection = mysql.createConnection
 
 //
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
-app.use(function(req,res,next){
-    if(!req.session){
-        return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-});
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 

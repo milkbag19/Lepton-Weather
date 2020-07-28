@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 const config = require("./includes/config.js");
+const weather = require("weather-js");
 
 
 // Creating a connection to our mysql database

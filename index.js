@@ -33,7 +33,7 @@ app.post('/auth', function(req, res) {
                 return console.error('error: ' + err.message);
             }
             if(results.length > 0){
-                req.session.user_id = results.user_id;
+                req.session.user_id = results[0].user_id;
                 res.writeHead(302, {
                     'Location': '/home'
                     //add other headers here...

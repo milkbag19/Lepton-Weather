@@ -3,9 +3,9 @@ var express = require('express');
 var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var path = require('path');//gg
+var path = require('path');
 var cookieParser = require('cookie-parser');
-const config = require("includes/config");
+const config = require("./includes/config.js");
 
 
 // Creating a connection to our mysql database

@@ -70,7 +70,7 @@ app.get('/home', function(request, response) {
 
 app.post('/results', function (req,res) {
     var local = req.body.location;
-    weather.find({search: local, degreeType: 'C'}, function (err, result) {
+    weather.find({search: 'ottawa', degreeType: 'C'}, function (err, result) {
         if (err) {
         } else if (result.length == 0) {
             return;

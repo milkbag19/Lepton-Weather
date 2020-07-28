@@ -21,8 +21,8 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    if(req.session.id != null && req.session.id != ""){
-        console.log(req.session.id);
+    if(req.session.id != null && req.session.user_id != ""){
+        console.log(req.session.user_id);
         res.render('pages/index', {});
     } else {
         res.render('pages/login', {});
@@ -39,7 +39,7 @@ app.post('/auth', function(req, res) {
                 return console.error('error: ' + err.message);
             }
             if(results.length > 0){
-                req.session.id = results[0].id;
+                req.session.user_id = results[0].id;
                 console.log(results[0].id);
                 res.writeHead(302, {
                     'Location': '/home'
@@ -56,12 +56,12 @@ app.post('/auth', function(req, res) {
 });
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
-    if (request.session.id) {
+    if (request.session.user_id) {
         response.render('pages/index', {});
-        response.send(request.session.id);
+        response.send(request.session.user_id);
     } else {
         response.send('Please login to view this page!');
-        response.send(request.session.id);
+        response.send(request.session.user_id);
     }
     response.end();
 });

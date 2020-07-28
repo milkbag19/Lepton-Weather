@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    res.render('login.ejs');
+    res.render('login', {});
 });
 
 // will listen to post requests in the /auth directory

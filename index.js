@@ -35,6 +35,7 @@ app.post('/auth', function(req, res) {
             }
             if(results.length > 0){
                 req.session.user_id = results[0].user_id;
+                console.log(results);
                 res.writeHead(302, {
                     'Location': '/home'
                     //add other headers here...
@@ -55,6 +56,7 @@ app.get('/home', function(request, response) {
         res.send(request.session.user_id);
     } else {
         response.send('Please login to view this page!');
+        res.send(request.session.user_id);
     }
     response.end();
 });

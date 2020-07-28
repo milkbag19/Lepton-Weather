@@ -19,7 +19,7 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    res.sendFile('/login');
+    res.sendFile('/login.html');
 });
 
 // will listen to post requests in the /auth directory
@@ -35,7 +35,6 @@ app.post('/auth', function(req, res) {
                 req.session.user_id = results.user_id;
                 res.writeHead(302, {
                     'Location': '/home'
-                    //add other headers here...
                 });
             } else {
                 res.send('Incorrect Username and/or Password!');

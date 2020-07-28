@@ -16,15 +16,7 @@ var connection = mysql.createConnection
 });
 
 //
-app.use(session({
-    cookie:{
-        secure: true,
-        maxAge:60000
-    },
-    secret: '5b6435iuybh873bgf347vb939g',
-    saveUninitialized: true,
-    resave: false
-}));
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(function(req,res,next){
     if(!req.session){
         return next(new Error('Oh no')) //handle error

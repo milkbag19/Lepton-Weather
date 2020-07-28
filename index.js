@@ -5,15 +5,16 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');//gg
 var cookieParser = require('cookie-parser');
+const config = require("includes/config");
 
 
 // Creating a connection to our mysql database
 var connection = mysql.createConnection
 ({
-    host     : 'us-cdbr-east-02.cleardb.com',
-    user     : 'bc7ebb91ba7af7',
-    password : 'e005b7aa',
-    database : 'heroku_4a764fc9b5fb4a4'
+    host     : config.db_host,
+    user     : config.db_user,
+    password : config.db_pass,
+    database : config.db_name
 });
 app.set('view engine', 'ejs');
 app.use(cookieParser());

@@ -4,7 +4,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');//gg
-const router = express.Router();
+
 
 // Creating a connection to our mysql database
 var connection = mysql.createConnection
@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 });
 
 // will listen to post requests in the /auth directory
-router.post('/auth', function(req, res) {
+app.post('/auth', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     if(username && password){
@@ -48,7 +48,7 @@ router.post('/auth', function(req, res) {
     }
 });
 // will listen to post requests in the /home directory
-router.get('/home', function(request, response) {
+app.get('/home', function(request, response) {
     if (request.session.user_id) {
         res.sendFile(path.join(__dirname + '/views/index.html'));
     } else {
@@ -56,5 +56,5 @@ router.get('/home', function(request, response) {
     }
     response.end();
 });
-app.use(router, "/");
+
 app.listen(process.env.PORT || 3000);

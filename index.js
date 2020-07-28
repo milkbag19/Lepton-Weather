@@ -19,9 +19,8 @@ var connection = mysql.createConnection
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/views'));
-router.get('/', function(req, res) {
-    res.sendFile('/login.html');
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/views/login.html'));
 });
 
 // will listen to post requests in the /auth directory
@@ -51,11 +50,11 @@ router.post('/auth', function(req, res) {
 // will listen to post requests in the /home directory
 router.get('/home', function(request, response) {
     if (request.session.user_id) {
-        res.sendFile(path.join(__dirname + '/index.html'));
+        res.sendFile(path.join(__dirname + '/views/index.html'));
     } else {
         response.send('Please login to view this page!');
     }
     response.end();
 });
-app.use('/', router);
+app.use(router, "/");
 app.listen(process.env.PORT || 3000);

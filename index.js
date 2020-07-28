@@ -14,13 +14,13 @@ var connection = mysql.createConnection
     password : 'e005b7aa',
     database : 'heroku_4a764fc9b5fb4a4'
 });
-
+app.set('view engine', 'ejs');
 //
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/views/login.html'));
+    res.sendFile(path.join(__dirname + '/views/pages/login'));
 });
 
 // will listen to post requests in the /auth directory
@@ -50,7 +50,7 @@ app.post('/auth', function(req, res) {
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
-        res.sendFile(path.join(__dirname + '/views/index.html'));
+        res.sendFile(path.join(__dirname + '/views/pages/index'));
     } else {
         response.send('Please login to view this page!');
     }

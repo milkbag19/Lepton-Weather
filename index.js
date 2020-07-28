@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
     if(req.session.id != null && req.session.id != ""){
+        console.log(req.session.id);
         res.render('pages/index', {});
     } else {
         res.render('pages/login', {});

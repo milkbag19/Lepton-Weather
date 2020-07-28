@@ -51,12 +51,13 @@ app.post('/auth', function(req, res) {
                 req.session.user_id = results.user_id;
                 res.send("good job bruh");
             } else {
+                res.send('Incorrect Username and/or Password!');
             }
             res.end();
         });
-
+    } else {
+        res.send('Please fill in both fields');
     }
-    res.end();
 });
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {

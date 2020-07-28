@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/views'));
 router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/login.html'));
+    res.sendFile('/login.html');
 });
 
 // will listen to post requests in the /auth directory

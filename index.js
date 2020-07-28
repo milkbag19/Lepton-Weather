@@ -58,10 +58,10 @@ app.post('/auth', function(req, res) {
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
         response.render('pages/index', {});
-        response.send(request.session.user_id);
+        console.log(request.session.user_id);
     } else {
         response.send('Please login to view this page!');
-        response.send(request.session.user_id);
+        console.log(request.session.user_id);
     }
     response.end();
 });

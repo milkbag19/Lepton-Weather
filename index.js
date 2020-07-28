@@ -49,7 +49,7 @@ app.post('/auth', function(req, res) {
             }
             if(results.length > 0){
                 req.session.user_id = results.user_id;
-                response.writeHead(302, {
+                res.writeHead(302, {
                     'Location': '/home'
                 });
             } else {

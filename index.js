@@ -62,7 +62,7 @@ app.post('/auth', function(req, res) {
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
-        response.send('Welcome back, ' + request.session.username + '!');
+        res.sendFile(path.join(__dirname + '/index.html'));
     } else {
         response.send('Please login to view this page!');
     }

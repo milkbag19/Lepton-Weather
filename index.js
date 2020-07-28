@@ -49,9 +49,7 @@ app.post('/auth', function(req, res) {
             }
             if(results.length > 0){
                 req.session.user_id = results.user_id;
-                res.writeHead(302, {
-                    'Location': '/home'
-                });
+                res.send("good job bruh");
             } else {
                 res.send('Incorrect Username and/or Password!');
             }

@@ -20,7 +20,7 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    res.render('login', {});
+    res.render('pages/login', {});
 });
 
 // will listen to post requests in the /auth directory
@@ -50,7 +50,7 @@ app.post('/auth', function(req, res) {
 // will listen to post requests in the /home directory
 app.get('/home', function(request, response) {
     if (request.session.user_id) {
-        res.sendFile(path.join(__dirname + '/views/pages/index'));
+        res.sendFile(path.join(__dirname + 'pages/index'));
     } else {
         response.send('Please login to view this page!');
     }

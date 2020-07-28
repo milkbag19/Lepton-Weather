@@ -4,6 +4,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');//gg
+var cookieParser = require('cookie-parser');
 
 
 // Creating a connection to our mysql database
@@ -15,7 +16,7 @@ var connection = mysql.createConnection
     database : 'heroku_4a764fc9b5fb4a4'
 });
 app.set('view engine', 'ejs');
-//
+app.use(cookieParser());
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());

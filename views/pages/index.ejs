@@ -166,7 +166,7 @@
                 font-size:1.5rem;
                 border:2px solid white;
                 border-radius:100px;
-                width:40px;
+                width:100px;
                 height:40px;
                 padding:5px;
                 margin: 5% auto 0% auto;
@@ -182,7 +182,7 @@
             }
 
               .button:hover{
-                  width:125px;
+                  width:150px;
                   background-color: white;
                   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
                   color: #91CCC2;
@@ -209,7 +209,7 @@
             <form action="results" method="post">
                 <input type="text" name="location" class="question" id="nme" required autocomplete="off" />
                 <label for="nme"><span>What location, sir?</span></label>
-                <button type="submit" id="submit" class="button"><div class="icon"><i class="fa fa-floppy-o"></i></div></button><p>Get Weather Report</p>
+                <button type="submit" id="submit" class="button"></button><p>Get Weather Report</p>
             </form>
             <% if (temp) { %>
                 <h1>Temperature in <%- location %> is <%- temp %> ° C </h1>

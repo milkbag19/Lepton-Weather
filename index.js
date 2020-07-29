@@ -80,7 +80,8 @@ app.post('/results', function (req,res) {
         }
         var current = result[0].current;
         var location = result[0].location;
-        app.locals.temp = current.imageUrl;
+        app.locals.temp = current.temperature;
+        app.locals.cloudy_image = current.imageUrl;
         app.locals.location = location.imagerelativeurl;
         res.writeHead(302, {
             'Location': '/home'

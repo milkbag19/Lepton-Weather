@@ -1,28 +1,71 @@
 <html>
     <head>
-        <title>Simple login</title>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
-        <script>
-            $(document).ready(function(){
-                var user,pass;
-                $("#submit").click(function(){
-                    user=$("#user").val();
-                    pass=$("#password").val();
-                    $.post("http://nodejswebsite11.herokuapp.com/",{user: user,password: pass}, function(data){
-                        if(data==='yes') {
-                            alert("login success");
-                        }
-                    });
-                });
-            });
-        </script>
+        <style>
+
+            body{
+                background-color:#91CCC2;
+            }
+
+            .container{
+                width:250px;
+                height:100px;
+                margin: 20% auto;
+                color:white;
+                font-size:1rem;
+                font-family:Arial,Helvetica Neue,Helvetica,sans-serif;
+
+            }
+            p{
+                text-align:center;
+            }
+            .button{
+
+                font-size:1.5rem;
+                border:2px solid white;
+                border-radius:100px;
+                width:40px;
+                height:40px;
+                padding:5px;
+                margin: 10% auto;
+                transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            }
+
+            .icon{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align:center;
+
+            }
+
+              .button:hover{
+                  width:125px;
+                  background-color: white;
+                  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+                  color: #91CCC2;
+                  transition:.3s;
+              }
+
+            .button:active{
+                box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+                transition: .05s
+            }
+        </style>
+        <meta content="Lepton Weather" property="og:title">
+
+        <meta content="A simple webpage to get your morning weather!" property="og:description">
+
+        <meta content="Creator : Josh Wells" property="og:site_name">
+
+        <meta content='https://cdn.discordapp.com/attachments/346759275789549591/738022782302027836/Untitled.png' property='og:image'>
+        <title>Lepton Weather</title>
     </head>
     <body>
-        <h1>Hello people !</h1>
+        <h1>Welcome to Lepton Weather!</h1>
         <form action="results" method="post">
-            <input type="TEXT" name="location" id="user" size="40"><br>
-            <input type="password" name="pass" id="password" size="40"><br>
-            <input type="submit" id="submit" value="Submit">
+            <input type="TEXT" name="location" id="local" size="40" placeholder="Please select a location"><br>
+            <button type="submit" id="submit" value="Get Report" class="button"><i class="fa fa-floppy-o"></i></button>
         </form>
         <% if (temp) { %>
             <h1><%- temp %></h1>

@@ -206,11 +206,12 @@
                 <label for="nme"><span>What location, sir?</span></label>
                 <button type="submit" id="submit" class="button">Submit</button>
             </form>
+            <div style="display:inline;">
+                <% if (temp) { %>
+                    <img src="<%- cloudy_image %>"><h1><%- temp %></h1><h4> °C</h4>
+                <% } %>
+            </div>
         </div>
-        <div>
-            <% if (temp) { %>
-                <img src="<%- cloudy_image %>"><h1><%- temp %></h1><h4> °C</h4>
-            <% } %>
-        </div>
+
     </body>
 </html>

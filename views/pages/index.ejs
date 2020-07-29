@@ -63,7 +63,7 @@
             <h1>Welcome to Lepton Weather!</h1>
             <form action="results" method="post">
                 <input type="TEXT" name="location" id="local" size="40" placeholder="Please select a location"><br>
-                <button type="submit" id="submit" value="Get Report" class="button"><i class="fa fa-floppy-o"></i></button>
+                <div class="button"><button type="submit" id="submit" value="Get Report" class="button"><div class="icon"><i class="fa fa-floppy-o"></i></div></button></div>
             </form>
             <% if (temp) { %>
                 <h1><%- temp %></h1>

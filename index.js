@@ -82,7 +82,7 @@ app.post('/results', function (req,res) {
         var location = result[0].location;
         app.locals.temp = current.temperature;
         app.locals.cloudy_image = current.imageUrl;
-        app.locals.location = location.imagerelativeurl;
+        app.locals.location = location.name;
         res.writeHead(302, {
             'Location': '/home'
             //add other headers here...

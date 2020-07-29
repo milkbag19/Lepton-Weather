@@ -23,7 +23,7 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.get('/', function(req, res) {
-    if(req.session.user_id != null && req.session.user_id != ""){
+    if(req.session.user_id != null){
         console.log(req.session.user_id);
         res.render('pages/index', {});
     } else {

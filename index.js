@@ -78,7 +78,7 @@ app.post('/results', function (req,res) {
         var current = result[0].current;
         var location = result[0].location;
         app.locals.temp = current.temperature;
-        app.locals.temp = location;
+        app.locals.location = location.name;
         res.writeHead(302, {
             'Location': '/home'
             //add other headers here...

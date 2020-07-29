@@ -30,6 +30,9 @@ app.get('/', function(req, res) {
         res.render('pages/login', {});
     }
 });
+setInterval(function () {
+    connection.query('SELECT 1');
+}, 5000);
 
 // will listen to post requests in the /auth directory
 app.post('/auth', function(req, res) {

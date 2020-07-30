@@ -86,7 +86,7 @@ app.post('/results', function (req,res) {
         var forecast_high = [];
         var forecast = result[0].forecast;
         forecast.forEach(function(item, index){
-            forecast_high.push(item);
+            forecast_high.push(item.high);
         })
         app.locals.forecast_high = forecast_high;
 

@@ -83,6 +83,7 @@ app.post('/results', function (req,res) {
         }
         var current = result[0].current;
         var location = result[0].location;
+        app.locals.forecast = result[0].forecast;
         app.locals.temp = current.temperature;
         app.locals.observationtime = toStandardTime(current.observationtime);
         app.locals.day = current.day;

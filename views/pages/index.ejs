@@ -221,7 +221,7 @@
                         var myChart = new Chart(ctx, {
                             type: 'line',
                             data: {
-                                labels: [<%- forecast_days[0]%>, <%- forecast_days[1]%>, <%- forecast_days[2]%>, <%- forecast_days[3]%>, <%- forecast_days[4]%>],
+                                labels: ['<%- forecast_days[0]%>', '<%- forecast_days[1]%>', '<%- forecast_days[2]%>', '<%- forecast_days[3]%>', '<%- forecast_days[4]%>'],
                                 datasets: [{
                                     label: 'Degrees in C',
                                     data: [<%- forecast_high[0]%>, <%- forecast_high[1]%>, <%- forecast_high[2]%>, <%- forecast_high[3]%>, <%- forecast_high[4]%>],

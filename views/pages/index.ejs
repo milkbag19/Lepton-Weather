@@ -217,67 +217,42 @@
                     <h1 style="font-size:4vw;margin-top:0;"><img width="65" height="55" style=" margin-right:1vh;" src="<%- cloudy_image %>"><%- temp %> °C</h1>
                     <canvas width="200" height="200" id="document_stats"></canvas>
                     <script>
-                        const documentStats = document.getElementById('document_stats').getContext('2d');
-                        const statsArr = {
-                            commentary: 0,
-                            variants: 0
-                        };
-                        const chartData = {
-                            labels: [],
-                            datasets: [{
-                                data: [],
-                                borderWidth: 5,
-                                backgroundColor: ['#2098d4', '#f8da50'],
-                                hoverBackgroundColor: ['#148fb5', '#f2d02b'],
-                            }],
-                        };
-
-                        const result = {
-                            "id": "13",
-                            "doc_name": "Confidentiality Agreement - (Non-Disclosure Agreement)",
-                            "short_name": "Comprehensive One-Directional",
-                            "long_description": "This agreement is intended to be used by a business when providing confidential information in one direction from the business to the recipient party. This agreement is comprehensive and includes various protections for the party disclosing the confidential information. This agreement can be used in various contexts eg. hiring a contract worker, or providing confidential information for a limited scope project.",
-                            "overview": {
-                                "name": "NDA",
-                                "summary": "An NDA is a non-disclosure agreement, also known as a confidentiality agreement. The person receiving confidential information agrees not to share that information with others and not to use the information except as authorized by the person disclosing the information.",
-                                "usage": "This document could be used in any situation where confidential information is shared, including employment/consulting relationships, potential investors, potential business relationships, potential mergers and acquisitions, potential manufacturers of a product etc.",
-                                "who_signs": "Both the person receiving the information (‘receiving party’) and the person disclosing the information (‘disclosing party’) will sign the NDA. Sometimes certain affiliates or representatives of the receiving and disclosing parties will also be required to sign the NDA.",
-                                "description": "Non-disclosure clauses can range in length from a clause contained in an agreement (eg. an employment agreement), to a lengthy and detailed stand-alone contract.\n\n                    The NDA must contain a general duty to not disclose the confidential information and a prohibition of use of the confidential information except for the purpose permitted in the NDA. The confidential information and the permitted purpose must be defined, and should be appropriate to the unique needs of the situation. The NDA should also include a list of exclusions from the obligation not to disclose, as well as a description of persons to whom the receiving party can disclose the information eg. authorized representatives.\n\n                    Many NDA’s contain further restrictive covenants designed to protect the disclosing party. These may include a non-competition clause, a non-solicitation clause, a non-circumvention clause or an expanded non-use clause.",
-                                "core_elements": "The core elements include: definition of confidential information, general duty not to disclose, confidential information exclusions, use limited to purpose, definition of use or purpose, authorized representatives, term, termination, remedies, return or destruction of confidential information.\n\n                    Some additional clauses include handling of confidential information and safeguarding requirements, ownership of confidential information and its derivatives, no representation as to accuracy of confidential information, confidentiality of agreement itself, injunctive relief, liability for actions of representatives, IP assignment and transfer of moral rights, no conflict with another agreement, non-competition, non-solicitation, non-circumvention, non-use, no obligation to enter into a business relationship.",
-                                "related_documents": ""
+                        const ctx = document.getElementById('myChart');
+                        const myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: '# of Votes',
+                                    data: [12, 19, 3, 5, 2, 3],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
                             },
-                            "status": [{
-                                "label": "commentary",
-                                "count": "127"
-                            }, {
-                                "label": "variants",
-                                "count": "256"
-                            }]
-                        };
-
-                        // TODO: Add permissions later. Hide from view later.
-                        result.status.filter((v, i) => { //debugger;
-                            statsArr[v.label] = v.count;
-                            $(`.${result.status[i].label.toLowerCase()}_stats span`).text(result.status[i].count);
-                        });
-
-                        // for Chart legend
-                        chartData.labels = Object.keys(statsArr);
-                        // for charts data
-                        chartData.datasets[0].data = Object.values(statsArr);
-
-                        // And for a doughnut chart
-                        new Chart(documentStats, {
-                            type: 'doughnut',
-                            data: chartData,
-                            maintainAspectRatio: false,
-                            responsive: true,
                             options: {
-                                legend: {
-                                    display: false,
-                                    position: 'left'
-                                },
-                            },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
                         });
                     </script>
                 </div>

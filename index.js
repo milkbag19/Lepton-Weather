@@ -8,7 +8,10 @@ var cookieParser = require('cookie-parser');
 const config = require("./includes/config.js");
 const weather = require("weather-js");
 
-
+function toStandardTime(militaryTime) {
+    militaryTime = militaryTime.split(':');
+    return (militaryTime[0].charAt(0) == 1 && militaryTime[0].charAt(1) > 2) ? (militaryTime[0] - 12) + ':' + militaryTime[1] + ':' + militaryTime[2] + ' P.M.' : militaryTime.join(':') + ' A.M.'
+}
 // Creating a connection to our mysql database
 var connection = mysql.createConnection
 ({
@@ -81,7 +84,7 @@ app.post('/results', function (req,res) {
         var current = result[0].current;
         var location = result[0].location;
         app.locals.temp = current.temperature;
-        app.locals.observationtime = current.observationtime
+        app.locals.observationtime = toStandardTime(current.observationtime);
         app.locals.day = current.day;
         app.locals.windspeed = current.windspeed;
         app.locals.feelslike = current.feelslike;

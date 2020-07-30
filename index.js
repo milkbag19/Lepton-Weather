@@ -93,7 +93,7 @@ app.post('/results', function (req,res) {
 
         forecast.forEach(function(item, index){
             forecast_high.push(item.high);
-            forecast_high.push(item.low);
+            forecast_low.push(item.low);
             forecast_days.push(item.shortday);
         });
 

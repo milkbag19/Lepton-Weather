@@ -215,7 +215,7 @@
 
                     <h1 style="font-size:1.5vw;"> <%- location %><br> <%- observationtime %></h1>
                     <h1 style="font-size:4vw;margin-top:0;"><img width="65" height="55" style=" margin-right:1vh;" src="<%- cloudy_image %>"><%- temp %> °C</h1>
-                    <canvas width="200" height="200" id="document_stats"></canvas>
+                    <canvas width="200" height="200" id="myChart"></canvas>
                     <script>
                         const ctx = document.getElementById('myChart');
                         const myChart = new Chart(ctx, {

@@ -86,16 +86,18 @@ app.post('/results', function (req,res) {
         var location = result[0].location;
         var forecast_high = [];
         var forecast_days = [];
+        var forecast_low = [];
         var forecast = result[0].forecast;
 
         console.log(forecast);
 
         forecast.forEach(function(item, index){
             forecast_high.push(item.high);
+            forecast_high.push(item.low);
             forecast_days.push(item.shortday);
         });
 
-
+        app.locals.forecast_low = forecast_low;
         app.locals.forecast_high = forecast_high;
         app.locals.forecast_days = forecast_days;
         app.locals.temp = current.temperature;

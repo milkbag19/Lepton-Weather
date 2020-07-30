@@ -223,9 +223,14 @@
                             data: {
                                 labels: ['<%- forecast_days[0]%>', '<%- forecast_days[1]%>', '<%- forecast_days[2]%>', '<%- forecast_days[3]%>', '<%- forecast_days[4]%>'],
                                 datasets: [{
-                                    label: 'Degrees in C',
+                                    label: 'Daily High',
                                     data: [<%- forecast_high[0]%>, <%- forecast_high[1]%>, <%- forecast_high[2]%>, <%- forecast_high[3]%>, <%- forecast_high[4]%>],
-                                    backgroundColor: "rgba(153,255,51,0.4)"
+                                    backgroundColor: "rgba(153,255,51,0.1)"
+                                },
+                                {
+                                    label: 'Daily Low',
+                                    data: [<%- forecast_low[0]%>, <%- forecast_low[1]%>, <%- forecast_low[2]%>, <%- forecast_low[3]%>, <%- forecast_low[4]%>],
+                                    backgroundColor: "rgba(35,167,154,0.1)"
                                 }]
                             },
                             options: {

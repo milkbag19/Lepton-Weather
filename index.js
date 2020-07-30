@@ -81,6 +81,11 @@ app.post('/results', function (req,res) {
         var current = result[0].current;
         var location = result[0].location;
         app.locals.temp = current.temperature;
+        app.locals.observationtime = current.observationtime
+        app.locals.day = current.day;
+        app.locals.windspeed = current.windspeed;
+        app.locals.feelslike = current.feelslike;
+        app.locals.humidity = current.humidity;
         app.locals.cloudy_image = current.imageUrl;
         app.locals.location = location.name;
         res.writeHead(302, {

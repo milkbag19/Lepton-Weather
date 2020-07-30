@@ -81,10 +81,12 @@ app.post('/results', function (req,res) {
         } else if (result.length == 0) {
             return;
         }
+
         var current = result[0].current;
         var location = result[0].location;
         var forecast_high = [];
         var forecast = result[0].forecast;
+        console.log(forecast);
         forecast.forEach(function(item, index){
             forecast_high.push(item.high);
         })

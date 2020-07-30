@@ -215,7 +215,7 @@
                 <div style="background: rgba(0, 0, 0, 0.2); padding:1vw;border-radius: 20px;">
 
                     <h1 style="font-size:1.5vw;"> <%- location %><br> <%- observationtime %></h1>
-                    <h1 style="font-size:4vw;margin-top:0;"><img width="65" height="55" style=" margin-right:1vh;" src="<%- cloudy_image %>"><%- temp %> °C<div><h1>Windspeed : <%- windspeed%></h1><h1>Humidity : <%- humidity%></h1></div></h1>
+                    <h1 style="font-size:4vw;margin-top:0;"><img width="65" height="55" style=" margin-right:1vh;" src="<%- cloudy_image %>"><%- temp %> °C<h1>Windspeed : <%- windspeed%></h1><h1>Humidity : <%- humidity%></h1></h1>
                     <canvas width="40" height="15" id="myChart"></canvas>
                     <script>
                         var ctx = document.getElementById('myChart').getContext('2d');
